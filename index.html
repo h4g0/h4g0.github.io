@@ -1,1 +1,357 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Hugo Gião</title><link href="/static/css/2.d45d6843.chunk.css" rel="stylesheet"><link href="/static/css/main.36f1bf09.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function r(r){for(var n,a,i=r[0],c=r[1],l=r[2],s=0,p=[];s<i.length;s++)a=i[s],Object.prototype.hasOwnProperty.call(o,a)&&o[a]&&p.push(o[a][0]),o[a]=0;for(n in c)Object.prototype.hasOwnProperty.call(c,n)&&(e[n]=c[n]);for(f&&f(r);p.length;)p.shift()();return u.push.apply(u,l||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,i=1;i<t.length;i++){var c=t[i];0!==o[c]&&(n=!1)}n&&(u.splice(r--,1),e=a(a.s=t[0]))}return e}var n={},o={1:0},u=[];function a(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,a),t.l=!0,t.exports}a.e=function(e){var r=[],t=o[e];if(0!==t)if(t)r.push(t[2]);else{var n=new Promise((function(r,n){t=o[e]=[r,n]}));r.push(t[2]=n);var u,i=document.createElement("script");i.charset="utf-8",i.timeout=120,a.nc&&i.setAttribute("nonce",a.nc),i.src=function(e){return a.p+"static/js/"+({}[e]||e)+"."+{3:"1653da3c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){i.onerror=i.onload=null,clearTimeout(l);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;c.message="Loading chunk "+e+" failed.\n("+n+": "+u+")",c.name="ChunkLoadError",c.type=n,c.request=u,t[1](c)}o[e]=void 0}};var l=setTimeout((function(){u({type:"timeout",target:i})}),12e4);i.onerror=i.onload=u,document.head.appendChild(i)}return Promise.all(r)},a.m=e,a.c=n,a.d=function(e,r,t){a.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},a.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,r){if(1&r&&(e=a(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(a.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)a.d(t,n,function(r){return e[r]}.bind(null,n));return t},a.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return a.d(r,"a",r),r},a.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},a.p="/",a.oe=function(e){throw console.error(e),e};var i=this.webpackJsonph4g0=this.webpackJsonph4g0||[],c=i.push.bind(i);i.push=r,i=i.slice();for(var l=0;l<i.length;l++)r(i[l]);var f=c;t()}([])</script><script src="/static/js/2.bb25d1bc.chunk.js"></script><script src="/static/js/main.929477c0.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hugo Gião - Researcher in DevOps and Model-driven Engineering">
+    <title>Hugo Gião</title>
+    <link rel="icon" href="https://h4g0.github.io/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #5dade2;
+            --light: #f9f9f9;
+            --dark: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 80px 0 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 12s infinite linear;
+            top: -50%;
+            left: -50%;
+        }
+
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        a {
+            color: var(--secondary);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .publication-links a {
+            display: block;
+            background: var(--light);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .publication-links a:hover {
+            background: #f0f4f8;
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 0 30px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+
+            .profile-img-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-img-container {
+                width: 130px;
+                height: 130px;
+                border-width: 3px;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            li {
+                font-size: 0.95rem;
+            }
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-left: 20px;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .education-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .education-item:before {
+            content: "•";
+            position: absolute;
+            left: -25px;
+            top: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-img-container">
+                <img src="hugo.jpg" alt="Hugo da Gião" class="profile-img">
+            </div>
+            <h1>Hugo da Gião<br><span style="font-size: 1.2rem; font-weight: 400;">Researcher in DevOps & Model-driven Engineering</span></h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Bio Section -->
+        <section>
+            <h2><i class="fas fa-user"></i> Bio</h2>
+            <p>Hi, I'm Hugo da Gião, a researcher at HASLab/INESC TEC and Ph.D. student in Informatics Engineering at FEUP. My work focuses on <strong>Model-driven DevOps methodologies</strong>, creating tools that enable developers to build DevOps pipelines without relying on specific implementations.</p>
+            <p>Previous research includes developing visual languages for non-technical users to solve optimization problems.</p>
+            <p>Access my <a href="https://h4g0.github.io/cv.pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></p>
+        </section>
+
+        <!-- Interests Section -->
+        <section>
+            <h2><i class="fas fa-lightbulb"></i> Research Interests</h2>
+            <ul>
+                <li>Software Engineering & DevOps</li>
+                <li>Model-driven Software Engineering</li>
+                <li>Human-centered Computing</li>
+                <li>Visual Languages & Low-code Solutions</li>
+                <li>CI/CD Pipeline Automation</li>
+            </ul>
+        </section>
+
+        <!-- Publications Section -->
+        <section>
+            <h2><i class="fas fa-book-open"></i> Publications</h2>
+            <div class="publication-links">
+                <a href="https://h4g0.github.io/gc2022.pdf" target="_blank">
+                    IEEE VL/HCC’22: Model-driven DevOps Approach
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://h4g0.github.io/LPBlocks___A_Block_based_Language_for_LinearProgramming.pdf" target="_blank">
+                    Master Thesis: LPBlocks - Block-based LP Language
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://h4g0.github.io/INForum21_LPBlocks__Linear_Programming_Meets_Block_basedLanguages.pdf" target="_blank">
+                    INForum’21: Block-based Linear Programming
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="timeline">
+                <div class="education-item">
+                    <h3>BSc Computer Science</h3>
+                    <p>University of Minho · 2016-2019</p>
+                </div>
+                <div class="education-item">
+                    <h3>MSc Informatics Engineering</h3>
+                    <p>University of Minho · 2019-2022</p>
+                </div>
+                <div class="education-item">
+                    <h3>PhD Informatics Engineering</h3>
+                    <p>University of Porto (FEUP) · 2022-Present</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section>
+            <h2><i class="fas fa-calendar-alt"></i> Events</h2>
+            <ul>
+                <li>
+                    <a href="https://dei.fe.up.pt/inforum23/" target="_blank">
+                        INForum’23 Web & Divulgation
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Hugo da Gião. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="mailto:your.email@example.com" style="color: white;">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
