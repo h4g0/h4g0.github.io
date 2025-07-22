@@ -7,73 +7,122 @@
     <meta name="description" content="Hugo Gião - Researcher in DevOps and Model-driven Engineering">
     <title>Hugo Gião</title>
     <link rel="icon" href="https://h4g0.github.io/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #5dade2;
-            --light: #f9f9f9;
-            --dark: #2c3e50;
-            --transition: all 0.3s ease;
+            --primary: #0f172a;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --accent-light: #dbeafe;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --success: #10b981;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            line-height: 1.7;
-            color: var(--dark);
-            background-color: var(--light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--light);
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header Styles */
+        /* Enhanced Header */
         header {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background: var(--gradient-primary);
             color: white;
-            padding: 80px 0 40px;
-            margin-bottom: 40px;
+            padding: 100px 0 60px;
+            margin-bottom: 60px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-bg {
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="80" fill="url(%23a)"/></svg>') no-repeat;
+            background-size: cover;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
 
         .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 10;
+            text-align: center;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 32px;
         }
 
         .profile-img-container {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1.5rem;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
             overflow: hidden;
             position: relative;
+            transition: var(--transition);
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+            animation: spin 4s linear infinite;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .profile-img-container:hover::before {
+            opacity: 1;
+        }
+
+        .profile-img-container:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl), 0 0 60px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         .profile-img {
@@ -81,277 +130,670 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.1);
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            animation: pulse 12s infinite linear;
-            top: -50%;
-            left: -50%;
-        }
-
-        @keyframes pulse {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
 
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Enhanced Sections */
+        section {
+            margin-bottom: 48px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+
         section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .section-content {
+            padding: 40px;
         }
 
         h2 {
             color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
+        h2 i {
             color: var(--accent);
+            font-size: 1.5rem;
         }
 
-        a {
-            color: var(--secondary);
-            transition: var(--transition);
+        .bio-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .bio-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-600);
+        }
+
+        .cv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
             font-weight: 500;
-        }
-
-        a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 30px 0;
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .publication-links a {
-            display: block;
-            background: var(--light);
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 8px 16px;
             border-radius: 8px;
+            background: var(--accent-light);
+            transition: var(--transition);
+        }
+
+        .cv-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        /* Enhanced Lists */
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            transition: var(--transition);
             border-left: 4px solid var(--accent);
         }
 
-        .publication-links a:hover {
-            background: #f0f4f8;
-            transform: translateX(10px);
+        .interest-item:hover {
+            background: var(--accent-light);
+            transform: translateX(8px);
         }
 
+        .interest-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        /* Enhanced Publications */
+        .publication-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .publication-card {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            transition: var(--transition);
+            border-left: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .publication-card:hover::before {
+            left: 100%;
+        }
+
+        .publication-card:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .publication-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .publication-card a:hover {
+            color: var(--accent);
+        }
+
+        /* Enhanced Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-accent);
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 32px;
+            padding: 20px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .education-item:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .education-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .education-item p {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 60px 0 40px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.08"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="800" cy="200" r="120" fill="url(%23b)"/><circle cx="200" cy="700" r="100" fill="url(%23b)"/><circle cx="700" cy="800" r="80" fill="url(%23b)"/></svg>') no-repeat;
+            background-size: cover;
+            animation: floatReverse 15s ease-in-out infinite;
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, 20px) rotate(-120deg); }
+            66% { transform: translate(30px, -30px) rotate(-240deg); }
+        }
+
+        .footer-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile optimizations */
         @media (max-width: 768px) {
-            header {
-                padding: 60px 0 30px;
+            .container {
+                padding: 0 16px;
             }
             
-            header h1 {
-                font-size: 2rem;
-                padding: 0 15px;
+            header {
+                padding: 80px 0 40px;
             }
 
+            .profile-img-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .section-content {
+                padding: 24px;
+            }
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 32px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .profile-img-container {
                 width: 150px;
                 height: 150px;
             }
 
-            section {
+            .section-content {
                 padding: 20px;
-                margin-bottom: 30px;
             }
 
             h2 {
                 font-size: 1.5rem;
             }
-
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .profile-img-container {
-                width: 130px;
-                height: 130px;
-                border-width: 3px;
-            }
-
-            section {
-                padding: 15px;
-            }
-
-            li {
-                font-size: 0.95rem;
-            }
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-            margin-left: 20px;
-        }
-
-        .timeline:before {
-            content: "";
-            position: absolute;
-            left: -10px;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: var(--accent);
-        }
-
-        .education-item {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .education-item:before {
-            content: "•";
-            position: absolute;
-            left: -25px;
-            top: 0;
-            color: var(--accent);
-            font-size: 1.5rem;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="container header-content">
-            <div class="profile-img-container">
-                <img src="hugo.jpg" alt="Hugo da Gião" class="profile-img">
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-container">
+                    <div class="profile-img-container">
+                        <img src="hugo.jpg" alt="Hugo da Gião" class="profile-img">
+                    </div>
+                </div>
+                <h1>Hugo da Gião</h1>
+                <p class="subtitle">Researcher in DevOps & Model-driven Engineering</p>
+                <div class="header-actions">
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                    <a href="mailto:hugo.a.giao@inesctec.pt" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </div>
             </div>
-            <h1>Hugo da Gião<br><span style="font-size: 1.2rem; font-weight: 400;">Researcher in DevOps & Model-driven Engineering</span></h1>
         </div>
     </header>
 
     <div class="container">
         <!-- Bio Section -->
-        <section>
-            <h2><i class="fas fa-user"></i> Bio</h2>
-            <p>Hi, I'm Hugo da Gião, a researcher at HASLab/INESC TEC and Ph.D. student in Informatics Engineering at FEUP. My work focuses on <strong>Model-driven DevOps methodologies</strong>, creating tools that enable developers to build DevOps pipelines without relying on specific implementations.</p>
-            <p>Previous research includes developing visual languages for non-technical users to solve optimization problems.</p>
-            <p>Access my <a href="https://h4g0.github.io/cv.pdf" target="_blank">CV <i class="fas fa-external-link-alt"></i></a></p>
-        </section>
-
-        <!-- Interests Section -->
-        <section>
-            <h2><i class="fas fa-lightbulb"></i> Research Interests</h2>
-            <ul>
-                <li>Software Engineering & DevOps</li>
-                <li>Model-driven Software Engineering</li>
-                <li>Human-centered Computing</li>
-                <li>Visual Languages & Low-code Solutions</li>
-                <li>CI/CD Pipeline Automation</li>
-            </ul>
-        </section>
-
-        <!-- Publications Section -->
-        <section>
-            <h2><i class="fas fa-book-open"></i> Publications</h2>
-            <div class="publication-links">
-                <a href="https://h4g0.github.io/gc2022.pdf" target="_blank">
-                    IEEE VL/HCC’22: Model-driven DevOps Approach
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://h4g0.github.io/LPBlocks___A_Block_based_Language_for_LinearProgramming.pdf" target="_blank">
-                    Master Thesis: LPBlocks - Block-based LP Language
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://h4g0.github.io/INForum21_LPBlocks__Linear_Programming_Meets_Block_basedLanguages.pdf" target="_blank">
-                    INForum’21: Block-based Linear Programming
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section>
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="timeline">
-                <div class="education-item">
-                    <h3>BSc Computer Science</h3>
-                    <p>University of Minho · 2016-2019</p>
-                </div>
-                <div class="education-item">
-                    <h3>MSc Informatics Engineering</h3>
-                    <p>University of Minho · 2019-2022</p>
-                </div>
-                <div class="education-item">
-                    <h3>PhD Informatics Engineering</h3>
-                    <p>University of Porto (FEUP) · 2022-Present</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events Section -->
-        <section>
-            <h2><i class="fas fa-calendar-alt"></i> Events</h2>
-            <ul>
-                <li>
-                    <a href="https://dei.fe.up.pt/inforum23/" target="_blank">
-                        INForum’23 Web & Divulgation
-                        <i class="fas fa-external-link-alt"></i>
+        <section class="fade-in">
+            <div class="section-content">
+                <h2><i class="fas fa-user-circle"></i> About Me</h2>
+                <div class="bio-content">
+                    <p>Hi, I'm Hugo da Gião, a researcher at HASLab/INESC TEC and Ph.D. student in Informatics Engineering at FEUP. My work focuses on <strong>Model-driven DevOps methodologies</strong>, creating tools that enable developers to build DevOps pipelines without relying on specific implementations.</p>
+                    <p>My research aims to bridge the gap between complex DevOps practices and developer accessibility, making advanced deployment strategies more approachable through visual and model-driven approaches.</p>
+                    <p>Previous research includes developing visual languages for non-technical users to solve optimization problems, demonstrating my commitment to making complex technical concepts more accessible.</p>
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="cv-link">
+                        <i class="fas fa-file-pdf"></i>
+                        View Complete CV
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section class="fade-in">
+            <div class="section-content">
+                <h2><i class="fas fa-lightbulb"></i> Research Interests</h2>
+                <div class="interest-grid">
+                    <div class="interest-item">
+                        <i class="fas fa-code"></i>
+                        <span>Software Engineering & DevOps</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Model-driven Software Engineering</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-users"></i>
+                        <span>Human-centered Computing</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Visual Languages & Low-code Solutions</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-infinity"></i>
+                        <span>CI/CD Pipeline Automation</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-robot"></i>
+                        <span>DevOps Toolchain Integration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="fade-in">
+            <div class="section-content">
+                <h2><i class="fas fa-book-open"></i> Publications</h2>
+                <div class="publication-grid">
+                    <div class="publication-card">
+                        <a href="https://h4g0.github.io/gc2022.pdf" target="_blank">
+                            <div>
+                                <strong>A model-driven approach for DevOps</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">VLHCC'22</p>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <a href="#" onclick="return false;" style="opacity: 0.8; cursor: default;">
+                            <div>
+                                <strong>A Meta-Model to Support the Migration and Evolution of CI/CD Pipelines</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">INForum'24</p>
+                            </div>
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <a href="#" onclick="return false;" style="opacity: 0.8; cursor: default;">
+                            <div>
+                                <strong>CI/CD Meets Block-Based Languages</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">VLHCC'23</p>
+                            </div>
+                            <i class="fas fa-file-alt"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <a href="#" onclick="return false;" style="opacity: 0.8; cursor: default;">
+                            <div>
+                                <strong>A Metamodel for Reengineering CI/CD Pipelines</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Accepted to MODELS'25</p>
+                            </div>
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <a href="https://h4g0.github.io/LPBlocks___A_Block_based_Language_for_LinearProgramming.pdf" target="_blank">
+                            <div>
+                                <strong>LPBlocks - Block-based LP Language</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Master Thesis</p>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card">
+                        <a href="https://h4g0.github.io/INForum21_LPBlocks__Linear_Programming_Meets_Block_basedLanguages.pdf" target="_blank">
+                            <div>
+                                <strong>Block-based Linear Programming</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">INForum'21</p>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+					<div class="publication-card">
+                        <a href="#" onclick="return false;" style="opacity: 0.8; cursor: default;">
+                            <div>
+                                <strong>PipeBlocks: A Block-based Environment for CI/CD</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Accepted to VL/HCC'25</p>
+                            </div>
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card" style="border-left-color: #f59e0b;">
+                        <a href="#" onclick="return false;" style="opacity: 0.7; cursor: default;">
+                            <div>
+                                <strong>Model-Driven Approaches for DevOps: A Systematic Literature Review</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">In submission</p>
+                            </div>
+                            <i class="fas fa-clock" style="color: #f59e0b;"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card" style="border-left-color: #f59e0b;">
+                        <a href="#" onclick="return false;" style="opacity: 0.7; cursor: default;">
+                            <div>
+                                <strong>Chronicles of CI/CD: A Deep Dive into its Usage Over Time</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">In submission</p>
+                            </div>
+                            <i class="fas fa-clock" style="color: #f59e0b;"></i>
+                        </a>
+                    </div>
+                    <div class="publication-card" style="border-left-color: #f59e0b;">
+                        <a href="#" onclick="return false;" style="opacity: 0.7; cursor: default;">
+                            <div>
+                                <strong>Model2Block: Generating Block-Based Visual Languages from Ecore Metamodels</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">In submission</p>
+                            </div>
+                            <i class="fas fa-clock" style="color: #f59e0b;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="fade-in">
+            <div class="section-content">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="timeline">
+                    <div class="education-item">
+                        <h3>BSc Computer Science</h3>
+                        <p>University of Minho · 2016-2019</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>MSc Informatics Engineering</h3>
+                        <p>University of Minho · 2019-2022</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>PhD Informatics Engineering</h3>
+                        <p>University of Porto (FEUP) · 2022-Present</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section class="fade-in">
+            <div class="section-content">
+                <h2><i class="fas fa-calendar-alt"></i> Events & Activities</h2>
+                <div class="publication-grid">
+                    <div class="publication-card">
+                        <a href="https://dei.fe.up.pt/inforum23/" target="_blank">
+                            <div>
+                                <strong>INForum'23 Web & Divulgation</strong>
+                                <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Conference Organization</p>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Hugo da Gião. All rights reserved.</p>
-            <p style="margin-top: 10px;">
-                <a href="mailto:your.email@example.com" style="color: white;">
-                    <i class="fas fa-envelope"></i> Contact
-                </a>
-            </p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="mailto:hugo.a.giao@inesctec.pt" class="footer-link">
+                        <i class="fas fa-envelope"></i>
+                        hugo.a.giao@inesctec.pt
+                    </a>
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="footer-link">
+                        <i class="fas fa-file-pdf"></i>
+                        CV
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=BZiBcUMAAAAJ&hl=pt-PT" target="_blank" class="footer-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        Google Scholar
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Hugo-Da-Giao?ev=hdr_xprf" target="_blank" class="footer-link">
+                        <i class="fab fa-researchgate"></i>
+                        ResearchGate
+                    </a>
+                </div>
+                <p style="opacity: 0.8;">&copy; 2025 Hugo da Gião. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
 </body>
 
 </html>
