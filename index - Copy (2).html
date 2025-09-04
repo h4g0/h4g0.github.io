@@ -7,11 +7,8 @@
     <meta name="description" content="Hugo Gião - Researcher in DevOps and Model-driven Engineering">
     <title>Hugo Gião</title>
     <link rel="icon" href="https://h4g0.github.io/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
             --primary: #0f172a;
@@ -70,20 +67,13 @@
             inset: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="80" fill="url(%23a)"/></svg>') no-repeat;
             background-size: cover;
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .header-bg {
-                animation: float 20s ease-in-out infinite;
-            }
+            animation: float 20s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-            33% { transform: translate3d(30px, -30px, 0) rotate(120deg); }
-            66% { transform: translate3d(-20px, 20px, 0) rotate(240deg); }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
         }
 
         .header-content {
@@ -109,8 +99,6 @@
             overflow: hidden;
             position: relative;
             transition: var(--transition);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .profile-img-container::before {
@@ -119,21 +107,9 @@
             inset: -5px;
             background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             border-radius: 50%;
+            animation: spin 4s linear infinite;
             opacity: 0;
             transition: var(--transition);
-            will-change: opacity, transform;
-            transform: translateZ(0);
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .profile-img-container::before {
-                animation: spin 4s linear infinite paused;
-            }
-            
-            .profile-img-container:hover::before {
-                animation-play-state: running;
-                opacity: 1;
-            }
         }
 
         .profile-img-container:hover::before {
@@ -141,12 +117,12 @@
         }
 
         .profile-img-container:hover {
-            transform: scale(1.05) translateZ(0);
+            transform: scale(1.05);
             box-shadow: var(--shadow-xl), 0 0 60px rgba(255, 255, 255, 0.2);
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg) translateZ(0); }
+            to { transform: rotate(360deg); }
         }
 
         .profile-img {
@@ -155,12 +131,10 @@
             object-fit: cover;
             object-position: center;
             transition: var(--transition);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .profile-img-container:hover .profile-img {
-            transform: scale(1.1) translateZ(0);
+            transform: scale(1.1);
         }
 
         header h1 {
@@ -195,8 +169,6 @@
             text-decoration: none;
             transition: var(--transition);
             border: 2px solid transparent;
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .btn-primary {
@@ -208,11 +180,11 @@
 
         .btn-primary:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px) translateZ(0);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
 
-        /* Enhanced Sections - Use transform3d for better performance */
+        /* Enhanced Sections */
         section {
             margin-bottom: 48px;
             background: var(--white);
@@ -221,8 +193,6 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         section::before {
@@ -236,7 +206,7 @@
         }
 
         section:hover {
-            transform: translateY(-8px) translateZ(0);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-xl);
         }
 
@@ -281,17 +251,15 @@
             border-radius: 8px;
             background: var(--accent-light);
             transition: var(--transition);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .cv-link:hover {
             background: var(--accent);
             color: white;
-            transform: translateX(4px) translateZ(0);
+            transform: translateX(4px);
         }
 
-        /* Enhanced Lists - Optimized transforms */
+        /* Enhanced Lists */
         .interest-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -307,13 +275,11 @@
             border-radius: 12px;
             transition: var(--transition);
             border-left: 4px solid var(--accent);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .interest-item:hover {
             background: var(--accent-light);
-            transform: translateX(8px) translateZ(0);
+            transform: translateX(8px);
         }
 
         .interest-item i {
@@ -336,8 +302,6 @@
             border-left: 4px solid var(--accent);
             position: relative;
             overflow: hidden;
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .publication-card::before {
@@ -349,7 +313,6 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: var(--transition);
-            will-change: left;
         }
 
         .publication-card:hover::before {
@@ -359,7 +322,7 @@
         .publication-card:hover {
             background: var(--white);
             box-shadow: var(--shadow-lg);
-            transform: translateY(-4px) translateZ(0);
+            transform: translateY(-4px);
         }
 
         .publication-card a {
@@ -399,8 +362,6 @@
             background: var(--gray-100);
             border-radius: 12px;
             transition: var(--transition);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .education-item::before {
@@ -419,7 +380,7 @@
         .education-item:hover {
             background: var(--white);
             box-shadow: var(--shadow-md);
-            transform: translateX(8px) translateZ(0);
+            transform: translateX(8px);
         }
 
         .education-item h3 {
@@ -450,20 +411,13 @@
             inset: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.08"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="800" cy="200" r="120" fill="url(%23b)"/><circle cx="200" cy="700" r="100" fill="url(%23b)"/><circle cx="700" cy="800" r="80" fill="url(%23b)"/></svg>') no-repeat;
             background-size: cover;
-            will-change: transform;
-            transform: translateZ(0);
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            footer::before {
-                animation: floatReverse 15s ease-in-out infinite;
-            }
+            animation: floatReverse 15s ease-in-out infinite;
         }
 
         @keyframes floatReverse {
-            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-            33% { transform: translate3d(-20px, 20px, 0) rotate(-120deg); }
-            66% { transform: translate3d(30px, -30px, 0) rotate(-240deg); }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, 20px) rotate(-120deg); }
+            66% { transform: translate(30px, -30px) rotate(-240deg); }
         }
 
         .footer-content {
@@ -489,27 +443,24 @@
             padding: 8px 16px;
             border-radius: 8px;
             transition: var(--transition);
-            will-change: transform;
-            transform: translateZ(0);
         }
 
         .footer-link:hover {
             color: white;
             background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px) translateZ(0);
+            transform: translateY(-2px);
         }
 
-        /* Optimized scroll animations */
+        /* Scroll animations */
         .fade-in {
             opacity: 0;
-            transform: translate3d(0, 30px, 0);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .fade-in.visible {
             opacity: 1;
-            transform: translate3d(0, 0, 0);
+            transform: translateY(0);
         }
 
         /* Mobile optimizations */
@@ -560,19 +511,6 @@
                 font-size: 1.5rem;
             }
         }
-
-        /* Performance optimization: Reduce animations on low-end devices */
-        @media (prefers-reduced-motion: reduce) {
-            .header-bg,
-            footer::before,
-            .profile-img-container::before {
-                animation: none;
-            }
-            
-            * {
-                transition: none !important;
-            }
-        }
     </style>
 </head>
 
@@ -583,13 +521,13 @@
             <div class="header-content">
                 <div class="profile-container">
                     <div class="profile-img-container">
-                        <img src="hugo.jpg" alt="Hugo da Gião" class="profile-img" loading="lazy">
+                        <img src="hugo.jpg" alt="Hugo da Gião" class="profile-img">
                     </div>
                 </div>
                 <h1>Hugo da Gião</h1>
                 <p class="subtitle">Researcher in DevOps & Model-driven Engineering</p>
                 <div class="header-actions">
-                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="btn btn-primary">
                         <i class="fas fa-download"></i>
                         Download CV
                     </a>
@@ -611,7 +549,7 @@
                     <p>Hi, I'm Hugo da Gião, a researcher at HASLab/INESC TEC and Ph.D. student in Informatics Engineering at FEUP. My work focuses on <strong>Model-driven DevOps methodologies</strong>, creating tools that enable developers to build DevOps pipelines without relying on specific implementations.</p>
                     <p>My research aims to bridge the gap between complex DevOps practices and developer accessibility, making advanced deployment strategies more approachable through visual and model-driven approaches.</p>
                     <p>Previous research includes developing visual languages for non-technical users to solve optimization problems, demonstrating my commitment to making complex technical concepts more accessible.</p>
-                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" rel="noopener" class="cv-link">
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="cv-link">
                         <i class="fas fa-file-pdf"></i>
                         View Complete CV
                     </a>
@@ -658,7 +596,7 @@
                 <h2><i class="fas fa-book-open"></i> Publications</h2>
                 <div class="publication-grid">
                     <div class="publication-card">
-                        <a href="https://h4g0.github.io/gc2022.pdf" target="_blank" rel="noopener">
+                        <a href="https://h4g0.github.io/gc2022.pdf" target="_blank">
                             <div>
                                 <strong>A model-driven approach for DevOps</strong>
                                 <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">VLHCC'22</p>
@@ -694,7 +632,7 @@
                         </a>
                     </div>
                     <div class="publication-card">
-                        <a href="https://h4g0.github.io/LPBlocks___A_Block_based_Language_for_LinearProgramming.pdf" target="_blank" rel="noopener">
+                        <a href="https://h4g0.github.io/LPBlocks___A_Block_based_Language_for_LinearProgramming.pdf" target="_blank">
                             <div>
                                 <strong>LPBlocks - Block-based LP Language</strong>
                                 <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Master Thesis</p>
@@ -703,7 +641,7 @@
                         </a>
                     </div>
                     <div class="publication-card">
-                        <a href="https://h4g0.github.io/INForum21_LPBlocks__Linear_Programming_Meets_Block_basedLanguages.pdf" target="_blank" rel="noopener">
+                        <a href="https://h4g0.github.io/INForum21_LPBlocks__Linear_Programming_Meets_Block_basedLanguages.pdf" target="_blank">
                             <div>
                                 <strong>Block-based Linear Programming</strong>
                                 <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">INForum'21</p>
@@ -757,7 +695,7 @@
                 <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
                 <div class="publication-grid">
                     <div class="publication-card">
-                        <a href="https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=486296" target="_blank" rel="noopener">
+                        <a href="https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=486296" target="_blank">
                             <div>
                                 <strong>Advanced Software Construction Techniques</strong>
                                 <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">FEUP - Faculty of Engineering of the University of Porto · 2024/2025</p>
@@ -802,7 +740,7 @@
                 <h2><i class="fas fa-calendar-alt"></i> Events & Activities</h2>
                 <div class="publication-grid">
                     <div class="publication-card">
-                        <a href="https://dei.fe.up.pt/inforum23/" target="_blank" rel="noopener">
+                        <a href="https://dei.fe.up.pt/inforum23/" target="_blank">
                             <div>
                                 <strong>INForum'23 Web & Divulgation</strong>
                                 <p style="margin-top: 8px; color: var(--gray-600); font-size: 0.9rem;">Conference Organization</p>
@@ -823,15 +761,15 @@
                         <i class="fas fa-envelope"></i>
                         hugo.a.giao@inesctec.pt
                     </a>
-                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" rel="noopener" class="footer-link">
+                    <a href="https://h4g0.github.io/cv.pdf" target="_blank" class="footer-link">
                         <i class="fas fa-file-pdf"></i>
                         CV
                     </a>
-                    <a href="https://scholar.google.com/citations?user=BZiBcUMAAAAJ&hl=pt-PT" target="_blank" rel="noopener" class="footer-link">
+                    <a href="https://scholar.google.com/citations?user=BZiBcUMAAAAJ&hl=pt-PT" target="_blank" class="footer-link">
                         <i class="fas fa-graduation-cap"></i>
                         Google Scholar
                     </a>
-                    <a href="https://www.researchgate.net/profile/Hugo-Da-Giao?ev=hdr_xprf" target="_blank" rel="noopener" class="footer-link">
+                    <a href="https://www.researchgate.net/profile/Hugo-Da-Giao?ev=hdr_xprf" target="_blank" class="footer-link">
                         <i class="fab fa-researchgate"></i>
                         ResearchGate
                     </a>
@@ -842,7 +780,7 @@
     </footer>
 
     <script>
-        // Optimized scroll animations with throttling
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -852,8 +790,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Stop observing once animation is triggered to improve performance
-                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -863,53 +799,24 @@
             observer.observe(el);
         });
 
-        // Optimized smooth scrolling with passive event listeners
-        document.addEventListener('click', function(e) {
-            const anchor = e.target.closest('a[href^="#"]');
-            if (anchor) {
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
                 }
-            }
-        }, { passive: false });
+            });
+        });
 
-        // Optimized loading animation
-        document.addEventListener('DOMContentLoaded', () => {
+        // Add loading animation
+        window.addEventListener('load', () => {
             document.body.style.opacity = '1';
         });
-
-        // Performance optimization: Pause animations when tab is not active
-        let animationsPaused = false;
-        
-        document.addEventListener('visibilitychange', () => {
-            const animatedElements = document.querySelectorAll('.header-bg, footer::before, .profile-img-container::before');
-            
-            if (document.hidden && !animationsPaused) {
-                animatedElements.forEach(el => {
-                    el.style.animationPlayState = 'paused';
-                });
-                animationsPaused = true;
-            } else if (!document.hidden && animationsPaused) {
-                animatedElements.forEach(el => {
-                    el.style.animationPlayState = 'running';
-                });
-                animationsPaused = false;
-            }
-        });
-
-        // Debounced resize handler for better performance
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Any resize-dependent calculations would go here
-            }, 250);
-        }, { passive: true });
     </script>
 </body>
 
